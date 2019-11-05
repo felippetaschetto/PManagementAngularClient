@@ -1,0 +1,126 @@
+<!-- https://v4-alpha.getbootstrap.com/components/forms/ -->
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header bg-info">
+                <h4 class="m-b-0 text-white">Profile</h4>
+                <div class="form-group">
+                    <label for="filePhoto">Photo</label>
+                    <input type="file" accept='image/*' name="filePhoto" id="filePhoto" (change)="uploadPhoto()" #fileInput/>
+                    <img *ngIf="imgURL" [src]="imgURL" height="200" >
+                </div>
+            </div>
+            <form id="profileForm" [formGroup]="profileForm" (ngSubmit)="formSubmit()">
+                <div class="form-body">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label" for="firstName">First Name</label>
+                                    <input type="text" formControlName="firstName" id="firstName" class="form-control"
+                                    [ngClass]="{ 'is-invalid': validateControl(profileForm.controls.firstName) }">
+                                    <div class="invalid-feedback">
+                                        First Name is required.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                  <label class="control-label" for="lastName">Last Name</label>
+                                  <input type="text" id="lastName" formControlName="lastName" class="form-control"
+                                    [ngClass]="{ 'is-invalid': validateControl(profileForm.controls.lastName) }">
+                                    <div class="invalid-feedback">
+                                        Last Name is required.
+                                    </div>
+                                </div>
+                            </div>                   
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label" for="email">Email</label>
+                                    <input  type="text" id="email" formControlName="email" class="form-control" 
+                                    [ngClass]="{ 'is-invalid': validateControl(profileForm.controls.email) }">
+                                    <div class="invalid-feedback">
+                                        Email is required.
+                                    </div>
+                                </div>
+                            </div>                   
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                  <label class="control-label" for="phone">Phone</label>
+                                  <input type="text" id="phone" formControlName="phone" class="form-control"
+                                  [ngClass]="{ 'is-invalid': validateControl(profileForm.controls.phone) }">
+                                  <div class="invalid-feedback">
+                                      Phone is required.
+                                  </div>
+                                </div>
+                            </div>                   
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label" for="country">Country</label>
+                                    <input type="text" id="country" formControlName="country" class="form-control"
+                                    [ngClass]="{ 'is-invalid': validateControl(profileForm.controls.country) }">
+                                    <div class="invalid-feedback">
+                                        Country is required.
+                                    </div>
+                                </div>
+                            </div>                   
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                  <label class="control-label" for="city">City</label>
+                                  <input type="text" id="city" formControlName="city" class="form-control"
+                                  [ngClass]="{ 'is-invalid': validateControl(profileForm.controls.city) }">
+                                  <div class="invalid-feedback">
+                                      City is required.
+                                  </div>
+                                </div>
+                            </div>                   
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                  <label class="control-label" for="postCode">Post Code</label>
+                                  <input type="text" id="postCode" formControlName="postCode" class="form-control"                                  
+                                  [ngClass]="{ 'is-invalid': validateControl(profileForm.controls.postCode) }">
+                                  <div class="invalid-feedback">
+                                      Post Code is required.
+                                  </div>
+                                </div>
+                            </div>                
+                        </div>
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="form-group">
+                                  <label class="control-label">Address</label>
+                                  <input type="text" id="address" formControlName="address" class="form-control"
+                                  [ngClass]="{ 'is-invalid': validateControl(profileForm.controls.address) }">
+                                  <div class="invalid-feedback">
+                                      Address is required.
+                                  </div>
+                                </div>
+                            </div>                   
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                  <label class="control-label" for="birthdate">Birthdate</label>
+                                  <input type="text" id="birthdate" formControlName="birthDate" [value]="userProfile.birthDate | date:'dd/MM/yyyy'" class="form-control"
+                                  [ngClass]="{ 'is-invalid': validateControl(profileForm.controls.birthDate) }">
+                                  <div class="invalid-feedback">
+                                    Birth Date is required.
+                                  </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>                                        
+                    <div class="form-actions">
+                        <div class="card-body">
+                            <button type="submit" *ngIf="!isLoading" class="btn btn-info"> <i class="fa fa-check"></i> Save</button>
+                            <div class="loader" *ngIf="isLoading"></div>
+                            <!-- <button type="button" class="btn btn-dark">Cancel</button>-->                        
+                        </div>                        
+                    </div>                    
+                </div>                
+            </form>
+        </div>
+    </div>
+</div>

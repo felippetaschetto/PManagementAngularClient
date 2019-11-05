@@ -1,0 +1,43 @@
+<nav class="sidebar-nav">
+    <ul id="sidebarnav">
+        <li class="user-profile" [class.active]="showMenu === 'user'">
+          <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" (click)="addExpandClass('user')" aria-expanded="false">
+            <img src="assets/images/users/profile.png" alt="user" />
+            <span class="hide-menu">{{loggedUser.firstName}} {{loggedUser.lastName}}</span>
+          </a>
+          <ul aria-expanded="false" class="collapse" [class.in]="showMenu === 'user'">
+            <li><a [routerLink]="['/user-profile']" >My Profile </a></li>
+            <li><a href="javascript:void()">My Balance</a></li>
+            <li><a href="javascript:void()">Inbox</a></li>
+            <li><a href="javascript:void()">Account Setting</a></li>
+            <li><a (click)="logout()" href="javascript:void()">Logout</a></li>
+          </ul>  
+        </li>
+  </ul>
+</nav>
+
+
+
+<!-- <nav class="navbar navbar-dark bg-dark mb-5">
+  <a class="navbar-brand" href="/">Angular & Bootstrap</a>
+  <div class="navbar-expand mr-auto">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active" href="#">Home</a>
+      <a class="nav-item nav-link" href="#">About</a>
+      <a class="nav-item nav-link" href="#">Contact</a>
+    </div>
+  </div>
+  <div class="navbar-expand ml-auto navbar-nav">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link" href="https://github.com/beeman" target="_blank">
+        <i class="fa fa-github"></i>
+      </a>
+      <a class="nav-item nav-link" href="https://twitter.com/beeman_nl" target="_blank">
+        <i class="fa fa-twitter"></i>
+      </a>
+      <a class="nav-item nav-link" href="https://medium.com/@beeman" target="_blank">
+        <i class="fa fa-medium"></i>
+      </a>
+    </div>
+  </div>
+</nav> -->
